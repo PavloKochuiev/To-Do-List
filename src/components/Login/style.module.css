@@ -1,0 +1,14 @@
+.title {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.input {
+  margin-top: 20px;
+  border: solid 1px grey;
+  padding: 3px;
+}
+
+.button {
+  margin-left: 10px;
+}

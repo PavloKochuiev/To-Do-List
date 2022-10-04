@@ -1,0 +1,10 @@
+.title {
+  padding: 25px;
+  padding-bottom: 0;
+}
+
+.modal {
+    border: solid 1px black;
+    width: 400px;
+    position: fixed;
+}
