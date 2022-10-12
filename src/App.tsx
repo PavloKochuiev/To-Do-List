@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Login from './components/Login/Login'
+import List from './components/List/List';
+import { store } from './app/store';
+import styles from './App.module.css';
 
-function App() {
+const App: React.FC = () => {
+  store.subscribe(() => {
+    localStorage.setItem('tasks', JSON.stringify(store.getState().tasksWatch.tasks));
+    localStorage.setItem('tab', store.getState().tabWatch.tab);
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.container}>
+      <div className={styles.general}>
+        <h1 className={styles.title}>To-Do List</h1>
+        <Routes>
+          <Route path='/' element={<Login />} />
+          <Route path='/list' element={<List />} />
+        </Routes>
+      </div>
     </div>
   );
 }
